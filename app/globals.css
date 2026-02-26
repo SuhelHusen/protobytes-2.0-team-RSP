@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #eef3f4;
+  --panel: #f5f7f8;
+  --card: #ffffff;
+  --surface-soft: #fbfdfe;
+  --surface-subtle: #f7faff;
+  --line: #d7dfe2;
+  --line-strong: #c2ced4;
+  --ink: #0f1e28;
+  --ink-soft: #456071;
+  --primary: #2d43cc;
+  --primary-soft: #e8ecff;
+  --success: #1f8f5f;
+  --warning: #d38f2c;
+  --danger: #cf425b;
+  --status-info-soft: #edf2ff;
+  --status-success-soft: #e8f7f0;
+  --status-warning-soft: #fff4dd;
+  --status-danger-soft: #ffe8ed;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0e141b;
+  --panel: #131d27;
+  --card: #192534;
+  --surface-soft: #1d2b3a;
+  --surface-subtle: #162231;
+  --line: #223243;
+  --line-strong: #2f4256;
+  --ink: #e5eef7;
+  --ink-soft: #95acc1;
+  --primary: #6d86ff;
+  --primary-soft: #203353;
+  --success: #4cc68c;
+  --warning: #f0b24c;
+  --danger: #ff7f97;
+  --status-info-soft: color-mix(in oklab, var(--primary) 23%, var(--card));
+  --status-success-soft: color-mix(in oklab, var(--success) 18%, var(--card));
+  --status-warning-soft: color-mix(in oklab, var(--warning) 18%, var(--card));
+  --status-danger-soft: color-mix(in oklab, var(--danger) 18%, var(--card));
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(
+    circle at 10% 10%,
+    color-mix(in oklab, var(--panel) 76%, var(--card)) 0,
+    var(--bg) 55%,
+    color-mix(in oklab, var(--bg) 92%, black) 100%
+  );
+  color: var(--ink);
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+  min-height: 100vh;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-grid-bg {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--line) 45%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--line) 45%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.glass {
+  background: color-mix(in oklab, var(--card) 86%, transparent);
+  backdrop-filter: blur(6px);
+  border: 1px solid color-mix(in oklab, var(--line) 80%, transparent);
+}
+
+.fade-in-up {
+  animation: fadeInUp 500ms ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.toast-slide-fade {
+  animation: toastSlideFade 2800ms ease forwards;
+}
+
+@keyframes toastSlideFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  12% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  84% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+[data-theme="dark"] :is(
+  .bg-white,
+  .bg-white\/80,
+  .bg-white\/75,
+  .bg-\[\#fbfdfe\],
+  .bg-\[\#fafcfd\],
+  .bg-\[\#fbfcfd\],
+  .bg-\[\#f9fbfc\],
+  .bg-\[\#f9fbfe\],
+  .bg-\[\#f9fbff\],
+  .bg-\[\#f4f8ff\],
+  .bg-\[\#f8fbfd\],
+  .bg-\[\#f7faff\],
+  .bg-\[\#f7fafc\],
+  .bg-\[\#f7f9fc\],
+  .bg-\[\#f5f8fa\],
+  .bg-\[\#eef3f6\],
+  .bg-\[\#eef2f7\],
+  .bg-\[\#edf2f7\],
+  .bg-\[\#edf2f5\],
+  .bg-\[\#ebedf0\],
+  .bg-\[\#fafcfe\]
+) {
+  background-color: var(--surface-soft) !important;
+}
+
+[data-theme="dark"] :is(.bg-white\/40, .bg-white\/70) {
+  background-color: color-mix(in oklab, var(--card) 68%, transparent) !important;
+}
+
+[data-theme="dark"] .hover\:bg-white\/70:hover {
+  background-color: color-mix(in oklab, var(--card) 78%, var(--panel)) !important;
+}
+
+[data-theme="dark"] .border-white\/70 {
+  border-color: color-mix(in oklab, var(--line) 70%, transparent) !important;
+}
+
+[data-theme="dark"] :is(.from-\[\#dbe6eb\], .from-\[\#d8e4e8\]) {
+  --tw-gradient-from: #243546 var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(36 53 70 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+[data-theme="dark"] .via-\[\#dbe6eb\] {
+  --tw-gradient-via: #2d4258 var(--tw-gradient-via-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to) !important;
+}
+
+[data-theme="dark"] :is(.to-\[\#bfd0d8\], .to-\[\#c8d7df\]) {
+  --tw-gradient-to: #1a2736 var(--tw-gradient-to-position) !important;
+}
+
+[data-theme="dark"] :is(
+  .bg-\[\#edf2ff\],
+  .bg-\[\#edf1ff\],
+  .bg-\[\#e8ecff\],
+  .bg-\[\#edf4ff\],
+  .bg-\[\#e8f1ff\],
+  .bg-\[\#f1f5ff\]
+) {
+  background-color: var(--status-info-soft) !important;
+}
+
+[data-theme="dark"] :is(.bg-\[\#e8f7f0\], .bg-\[\#eef9f3\], .bg-\[\#ecf8f1\]) {
+  background-color: var(--status-success-soft) !important;
+}
+
+[data-theme="dark"] :is(.bg-\[\#fff4dd\], .bg-\[\#fff4e1\], .bg-\[\#fff8d6\]) {
+  background-color: var(--status-warning-soft) !important;
+}
+
+[data-theme="dark"] :is(.bg-\[\#ffe8ed\], .bg-\[\#fff2f5\], .bg-\[\#ffe9ed\], .bg-\[\#fdecef\]) {
+  background-color: var(--status-danger-soft) !important;
+}
+
+[data-theme="dark"] :is(.text-\[\#2e4757\], .text-\[\#3f5b6d\]) {
+  color: var(--ink-soft) !important;
+}
+
+[data-theme="dark"] :is(.text-\[\#2d43cc\]) {
+  color: var(--primary) !important;
+}
+
+[data-theme="dark"] :is(.text-\[\#1f8f5f\], .text-\[\#15533a\], .text-\[\#186e48\]) {
+  color: var(--success) !important;
+}
+
+[data-theme="dark"] :is(
+  .text-\[\#845710\],
+  .text-\[\#89550e\],
+  .text-\[\#8b7326\],
+  .text-\[\#705c29\],
+  .text-\[\#5b4f2d\],
+  .text-\[\#372e18\],
+  .text-\[\#d38f2c\]
+) {
+  color: var(--warning) !important;
+}
+
+[data-theme="dark"] :is(.text-\[\#b6344c\], .text-\[\#cf425b\], .text-\[\#bf476f\]) {
+  color: var(--danger) !important;
+}
+
+[data-theme="dark"] :is(.border-\[\#bfd0ff\], .border-\[\#c8d4ff\], .border-\[\#b8caea\]) {
+  border-color: color-mix(in oklab, var(--primary) 42%, var(--line)) !important;
+}
+
+[data-theme="dark"] :is(.border-\[\#94d5b6\], .border-\[\#b9dbcb\], .border-\[\#1f8f5f\]) {
+  border-color: color-mix(in oklab, var(--success) 42%, var(--line)) !important;
+}
+
+[data-theme="dark"] :is(.border-\[\#f0b24c\], .border-\[\#ead68e\]) {
+  border-color: color-mix(in oklab, var(--warning) 42%, var(--line)) !important;
+}
+
+[data-theme="dark"] :is(.border-\[\#f1c4cd\], .border-\[\#f1b7c1\], .border-\[\#cf425b\]) {
+  border-color: color-mix(in oklab, var(--danger) 42%, var(--line)) !important;
+}
